@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/Lock.png</file>
+        <file>img/encrypt.png</file>
+        <file>img/icon.png</file>
+    </qresource>
+</RCC>

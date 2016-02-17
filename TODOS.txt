@@ -1,0 +1,4 @@
+TODOS
+=====
+
+[ ] Shrink encryptThread and encryptFileThread into one Thread class

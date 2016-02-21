@@ -131,14 +131,14 @@ void Widget::encryptFile()
         }
     }
 
-    fileThread = new EncryptFileThread(password, ui->lineEdit_input->text(), ui->lineEdit_output->text(), "AES", enc_dec);
-    connect(fileThread, SIGNAL(finished()), this, SLOT(fileThreadFinished()));
+    thread = new EncryptThread(password, ui->lineEdit_input->text(), ui->lineEdit_output->text(), "AES", enc_dec);
+    connect(thread, SIGNAL(finished()), this, SLOT(fileThreadFinished()));
 
     ui->lineEdit_output->setEnabled(false);
     ui->lineEdit_input->setEnabled(false);
     ui->pushButton_encrypt->setEnabled(false);
 
-    fileThread->start();
+    thread->start();
 }
 
 void Widget::fileThreadFinished()
@@ -146,7 +146,7 @@ void Widget::fileThreadFinished()
     ui->lineEdit_output->setEnabled(true);
     ui->lineEdit_input->setEnabled(true);
     ui->pushButton_encrypt->setEnabled(true);
-    delete fileThread;
+    delete thread;
 }
 
 void Widget::checkLines(QString str)
@@ -180,9 +180,9 @@ void Widget::checkLines(QString str)
 void Widget::encryptText()
 {
     bool enc_dec = ui->textPageRadioEncrypt->isChecked();
-    textThread = new EncryptThread(ui->textPagePassword->text(), ui->textPageInput->toPlainText(), "AES", enc_dec);
-    connect(textThread, SIGNAL(finished()), this, SLOT(textThreadFinished()));
-    textThread->start();
+    thread = new EncryptThread(ui->textPagePassword->text(), ui->textPageInput->toPlainText(), "AES", enc_dec);
+    connect(thread, SIGNAL(finished()), this, SLOT(textThreadFinished()));
+    thread->start();
     ui->textPageEncryptButton->setEnabled(false);
 }
 
@@ -204,7 +204,7 @@ void Widget::checkTextPageLines(QString)
 
 void Widget::textThreadFinished()
 {
-    ui->textPageOutput->setText(textThread->encryptedText());
+    ui->textPageOutput->setText(thread->encryptedText());
     ui->textPageEncryptButton->setEnabled(true);
-    delete textThread;
+    delete thread;
 }

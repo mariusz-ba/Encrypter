@@ -9,7 +9,6 @@
 
 #include "encryption.h"
 #include "encryptthread.h"
-#include "encryptfilethread.h"
 #include "aboutdialog.h"
 
 namespace Ui {
@@ -57,8 +56,7 @@ private:
     QListWidgetItem* menu_text;
     QListWidgetItem* menu_file;
 
-    EncryptThread* textThread;
-    EncryptFileThread* fileThread;
+    EncryptThread* thread;
 
     void initializeUi();
 };

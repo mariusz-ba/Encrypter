@@ -1,4 +1,6 @@
 TODOS
 =====
 
-[ ] Shrink encryptThread and encryptFileThread into one Thread class
+UPDATE 21.02.2016
+-----------------
+[*] Shrink encryptThread and encryptFileThread into one Thread class

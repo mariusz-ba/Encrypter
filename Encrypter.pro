@@ -16,13 +16,11 @@ SOURCES += main.cpp\
         widget.cpp \
     encryption.cpp \
     encryptthread.cpp \
-    encryptfilethread.cpp \
     aboutdialog.cpp
 
 HEADERS  += widget.h \
     encryption.h \
     encryptthread.h \
-    encryptfilethread.h \
     aboutdialog.h
 
 FORMS    += widget.ui \
